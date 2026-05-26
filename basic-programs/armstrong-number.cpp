@@ -1,5 +1,5 @@
 #include<iostream>
-bool prime(int x);
+bool armstrong(int x);
 int main(){
   
   int num;
@@ -8,7 +8,7 @@ int main(){
   std::cout<<"*** An Armstrong number is a number which is the sum of the cube of each of its digits ***";
   std::cout<<"\nEnter a number to check if it is an Armstrong number ";
   std::cin>>num;
-  res=prime(num);
+  res=armstrong(num);
     
     if(res==1){
       
@@ -23,7 +23,7 @@ int main(){
 
 }
 
-bool prime(int x){
+bool armstrong(int x){
         int c=0;
         int r, x2;
         x2=x;
