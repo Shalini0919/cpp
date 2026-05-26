@@ -1,5 +1,5 @@
 #include<iostream>
-int prime(int x);
+int reverse(int x);
 int main(){
   
   int num;
@@ -7,13 +7,13 @@ int main(){
   
   std::cout<<"\nEnter a number to get the reversed digits of:";
   std::cin>>num;
-  res=prime(num);
+  res=reverse(num);
   std::cout<<"The number after the reversed digits: "<<res;
   return 0;
 
 }
 
-int prime(int x){
+int reverse(int x){
  
         int rev=0, x2;
         x2=x;
