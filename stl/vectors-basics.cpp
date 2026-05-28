@@ -1,5 +1,5 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 
 int main() {
     
@@ -8,13 +8,14 @@ int main() {
     vec={1,2,3,4,5};
     
     //displaying the elements in the vector using a for each loop
-    for(int i:vec){
+    std::cout<<"\nPrinting the Vector after it was initialised: ";
+    for(int i : vec){
         std::cout <<i<<" ";
     }
-    
-    std::cout<<"\nNow we will enter the values one by one";
+    std::cout<<"\n";
+    std::cout<<"\nNow we will enter the values one by one after having the previous elements deleted.";
     vec.clear();        //this clears the previous vector so that we manually put new datas into it
-    
+    std::cout<<"\n";
     int ch,data;
     do{
         std::cout<<"\nEnter a data you want to enter:";
@@ -24,14 +25,15 @@ int main() {
         std::cin>>ch;
     }while(ch!=0);
     
-    for(int i:vec){
+    std::cout<<"\nPrinting the vector after the new elements are input: ";
+    for(int i : vec){
         std::cout <<i<<" ";
     }
-    
+    std::cout<<"\n";
     //Now we will calculate the sum of all the elements in the vector
     int sum=0;
-    for(auto i=vec.begin(); i!=vec.end(); i++){
-        sum=sum+(*i);
+    for(auto it=vec.begin(); it!=vec.end(); it++){
+        sum=sum+(*it);
     }
     
     std::cout<<"\nThe sum of all the elements currently present in the vector is="<<sum;
@@ -39,10 +41,10 @@ int main() {
     //Printing the maximum element in the vector
     int max= vec[0];
     
-    for(auto j=vec.begin(); j!=vec.end(); j++){
+    for(auto it=vec.begin(); it!=vec.end(); it++){
         
-        if(max<*(j)){
-            max=*j;
+        if(max<*(it)){
+            max=*it;
         }
         
     }
@@ -52,9 +54,9 @@ int main() {
     //number of even elements in the vector
     int count=0;
     
-    for(auto k=vec.begin(); k!=vec.end(); k++){
+    for(auto it=vec.begin(); it!=vec.end(); it++){
         
-        if(*(k)%2==0){
+        if(*(it)%2==0){
             count++;
         }
         
@@ -76,13 +78,49 @@ int main() {
         }
      } 
     
-    std::cout<<"\nThe reversed Array=";
+    std::cout<<"\nThe reversed Array: ";
     
-    for(int h: vec)
+    for(int i : vec)
     {
-        std::cout<<h<<" ";
+        std::cout<<i<<" ";
     }
     
-    return 0;
+    //Removing duplicates from a sorted vector.
+    std::cout<<"\n\nNow we will enter the values one by one but this time it would be in a sorted way with duplicates.\n";
+    vec.clear();        
+    
+    
+    do{
+        std::cout<<"\nEnter a data you want to enter:";
+        std::cin>>data;
+        vec.push_back(data);
+        std::cout<<"\nDo you want to continue?...Press 0 to terminate";
+        std::cin>>ch;
+    }while(ch!=0);
+    
+    std::cout<<"\n\nThis is the vector with duplicates: ";
+    for(int i : vec){
+        std::cout <<i<<" ";
+    }
 
+    for(auto it = vec.begin(); it != vec.end(); it++)
+{
+    auto j = std::next(it);
+
+    while(j != vec.end())
+    {
+        if(*it == *j)
+            j = vec.erase(j);
+        else
+            j++;
+    }
+}
+
+    std::cout<<"\nAfter removing the duplicates: ";
+    for(int i : vec){
+         std::cout<<i<<" ";
+      }
+    
+    
+    return 0;
 }
